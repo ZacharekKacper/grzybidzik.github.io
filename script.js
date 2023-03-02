@@ -34,10 +34,10 @@ function sprawdzWygrana(){
         let aStyl = document.querySelector("#k"+(warunki[0]+1))
         let bStyl = document.querySelector("#k"+(warunki[1]+1))
         let cStyl = document.querySelector("#k"+(warunki[2]+1))
-        
+        sprawdzRemis(); //funkcja sprawdzająca czy nie ma remisu
         //nie mam pojecia co to robi ale działa więc jest git
-        if(moznaGrac == true){
-            sprawdzRemis(); //funkcja sprawdzająca czy nie ma remisu
+        //if(moznaGrac == true){
+            
             counter+=1;
             if(a == b && b == c && a != "" && b != "" && c != ""){
                 moznaGrac = false;
@@ -54,7 +54,7 @@ function sprawdzWygrana(){
 
                 zmianaGracza() //zmienia graczy po sprawdzeniu wszystkich warunków
             }
-        }
+        //}
         
         
         
@@ -144,14 +144,16 @@ function zmienTryb(jakiTryb){
 
 //funckcja sprawdzająca czy nie ma
 function sprawdzRemis(){
-    let liczRemis = 0
-    plansza.forEach(komorka => {
-        if(komorka.innerHTML != "")
-            liczRemis++
-    })
-    if(liczRemis >= 9){
-        moznaGrac = false;    
-        document.querySelector("#aktywnyGracz").innerHTML = "Remis";
+    if(moznaGrac){
+        let liczRemis = 0
+        plansza.forEach(komorka => {
+            if(komorka.innerHTML != "")
+                liczRemis++
+        })
+        if(liczRemis >= 9){
+            moznaGrac = false;    
+            document.querySelector("#aktywnyGracz").innerHTML = "Remis";
+        }
     }
 
 }
