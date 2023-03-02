@@ -1,0 +1,100 @@
+body {
+    font-size: 100px;
+    text-align: center;
+    background: url("las.png");
+    color: white;
+    background-size: 100%;
+}
+
+.komorka {
+    flex: 1 0 33%;
+    border: 1px solid black;
+    width: 100px;
+    height: 200px;
+    font-size: auto;
+    background-color: white;
+}
+
+#kolkoigrzyb {
+    width: 600px;
+    height: 600px;
+    font-size: 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+#zmienTrybButton {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#resethyhym {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#zmienTrybButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#zmienTrybButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#zmienTrybButton:hover span {
+    padding-right: 25px;
+}
+
+#zmienTrybButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#resethyhym {
+    background-color: #3e8e41
+}
+
+#resethyhym:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#jakiTrybDiv {
+    font-family: fantasy;
+    color: lightskyblue
+}
+
+#aktywnyGracz {
+    font-family: fantasy;
+    color: lightskyblue;
+}
+
+#kolkoigrzyb {
+    margin: auto;
+}
