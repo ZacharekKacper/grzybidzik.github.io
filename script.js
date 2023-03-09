@@ -17,6 +17,7 @@ const warunkiWygranej = [
     [2,4,6]
 ]
 let moznaGrac = true
+let kvsk = false 
 
     
 
@@ -156,4 +157,20 @@ function sprawdzRemis(){
         }
     }
 
+}
+
+function komputervskomputer(x){
+    kvsk = x
+    let trybButton = document.querySelector("#wlaczKWK");
+    let trybDiv = document.querySelector("#jakiTrybDiv");
+    if(x){
+        trybButton.setAttribute("onclick","komputervskomputer(false)");
+        trybDiv.innerHTML = "Gracz Vs Gracz";
+        graczVsGracz = true
+    }
+    else{
+        rybButton.setAttribute("onclick","komputervskomputer(true)");
+        trybDiv.innerHTML = "Komputer Vs Komputer";
+        graczVsGracz = false
+    }
 }
