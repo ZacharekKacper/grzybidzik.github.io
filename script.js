@@ -17,7 +17,9 @@ const warunkiWygranej = [
     [2,4,6]
 ]
 let moznaGrac = true
-let kvsk = false 
+let botygrajo = false
+
+
 
     
 
@@ -38,32 +40,30 @@ function sprawdzWygrana(){
         sprawdzRemis(); //funkcja sprawdzająca czy nie ma remisu
         //nie mam pojecia co to robi ale działa więc jest git
         //if(moznaGrac == true){
-            
+            console.log(counter);
             counter+=1;
             if(a == b && b == c && a != "" && b != "" && c != ""){
                 moznaGrac = false;
-
+                botygrajo = false;
+                console.log("rosol");
                 document.querySelector("#aktywnyGracz").innerHTML = "Wygrywa: "+aktywnyGracz;
                 aStyl.style.backgroundColor = "green";
                 bStyl.style.backgroundColor = "green";
                 cStyl.style.backgroundColor = "green";
 
             }
-
+            
+            else if(counter >= 8 && botygrajo){
+                console.log("gowno");
+                start()
+                zmianaGracza()
+            }
             else if(counter >= 8 && moznaGrac){
-                
-
+                console.log(counter)
                 zmianaGracza() //zmienia graczy po sprawdzeniu wszystkich warunków
             }
-        //}
-        
-        
-        
-                
+            
     })
-    
-        
-        
 }
 
 //funckcja zmieniająca graczy
@@ -92,26 +92,25 @@ function zmianaGracza(){
                     dobrePole = false;
                     }
                 }
-            
-        }, 10)
-
-        
-        
-    }
-    
-    
+        }, 10)  
+    } 
 }
+
+
+
+
 
 //funckcja wykonująca ture i sprawdzająca czy ruch jest odpowiedni
 function tura(x){
     if(moznaGrac){
         let komorka = document.querySelector("#k"+x);               
-            if(komorka.innerHTML == ""){
-                komorka.innerHTML = aktywnyGracz;
-                sprawdzWygrana();     
-            }    
+        if(komorka.innerHTML == ""){
+            komorka.innerHTML = aktywnyGracz;
+            sprawdzWygrana();
+        }
     }
 }
+
 
 //funkcja resetująca gre
 function reset(){
@@ -129,6 +128,7 @@ function reset(){
 
 //funkcja zmieniająca tryb z gracz vs gracz na gracz vs komputer
 function zmienTryb(jakiTryb){
+    
     graczVsGracz = jakiTryb;
     let trybButton = document.querySelector("#zmienTrybButton");
     let trybDiv = document.querySelector("#jakiTrybDiv");
@@ -145,32 +145,37 @@ function zmienTryb(jakiTryb){
 
 //funckcja sprawdzająca czy nie ma
 function sprawdzRemis(){
-    if(moznaGrac){
+    if(moznaGrac || botygrajo){
         let liczRemis = 0
         plansza.forEach(komorka => {
             if(komorka.innerHTML != "")
                 liczRemis++
         })
         if(liczRemis >= 9){
-            moznaGrac = false;    
+            moznaGrac = false;
+            botygrajo = false
             document.querySelector("#aktywnyGracz").innerHTML = "Remis";
         }
     }
-
 }
 
-function komputervskomputer(x){
-    kvsk = x
-    let trybButton = document.querySelector("#wlaczKWK");
-    let trybDiv = document.querySelector("#jakiTrybDiv");
-    if(x){
-        trybButton.setAttribute("onclick","komputervskomputer(false)");
-        trybDiv.innerHTML = "Gracz Vs Gracz";
-        graczVsGracz = true
+function start(){
+    if(moznaGrac){
+        let dobrePole = true 
+        botygrajo = true
+        setTimeout(() => {
+            console.log("elzbieta") //elzbieta
+            while(dobrePole){
+                let pole = Math.floor((Math.random()*9)+1); //tu sie losuje losowe pole dla bota a to co sie dzieje dalej to czarna magia
+                let komorka = document.querySelector("#k"+pole);
+                if(komorka.innerHTML == ""){
+                    tura(pole);  
+                    dobrePole = false;
+                    }
+                }
+                
+        }, 1000) 
+        
     }
-    else{
-        rybButton.setAttribute("onclick","komputervskomputer(true)");
-        trybDiv.innerHTML = "Komputer Vs Komputer";
-        graczVsGracz = false
-    }
+
 }
