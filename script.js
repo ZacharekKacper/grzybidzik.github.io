@@ -18,6 +18,7 @@ const warunkiWygranej = [
 ]
 let moznaGrac = true
 let botygrajo = false
+let czyRemis = false
 
 
 
@@ -38,11 +39,10 @@ function sprawdzWygrana(){
         let bStyl = document.querySelector("#k"+(warunki[1]+1))
         let cStyl = document.querySelector("#k"+(warunki[2]+1))
         sprawdzRemis(); //funkcja sprawdzająca czy nie ma remisu
-        //nie mam pojecia co to robi ale działa więc jest git
-        //if(moznaGrac == true){
+        
             console.log(counter);
             counter+=1;
-            if(a == b && b == c && a != "" && b != "" && c != ""){
+            if(a == b && b == c && a != "" && b != "" && c != "" && moznaGrac){
                 moznaGrac = false;
                 botygrajo = false;
                 console.log("rosol");
@@ -53,12 +53,12 @@ function sprawdzWygrana(){
 
             }
             
-            else if(counter >= 8 && botygrajo){
+            else if(counter >= 8 && botygrajo && !czyRemis){
                 console.log("gowno");
                 start()
                 zmianaGracza()
             }
-            else if(counter >= 8 && moznaGrac){
+            else if(counter >= 8 && moznaGrac && !czyRemis){
                 console.log(counter)
                 zmianaGracza() //zmienia graczy po sprawdzeniu wszystkich warunków
             }
@@ -115,6 +115,7 @@ function tura(x){
 //funkcja resetująca gre
 function reset(){
     moznaGrac = true
+    czyRemis = false
     aktywnyGracz = grzyb
     document.querySelector("#aktywnyGracz").innerHTML = "Aktywny gracz: "+aktywnyGracz;
     
@@ -152,7 +153,7 @@ function sprawdzRemis(){
                 liczRemis++
         })
         if(liczRemis >= 9){
-            moznaGrac = false;
+            czyRemis = true
             botygrajo = false
             document.querySelector("#aktywnyGracz").innerHTML = "Remis";
         }
