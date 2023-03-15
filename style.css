@@ -1,9 +1,20 @@
 body {
     font-size: 100px;
     text-align: center;
-    background: url("las-1.png");
+    background: url("las.png");
     color: white;
     background-size: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow-y: hidden;
+}
+div {
+
+    -webkit-text-stroke: 2px black;
 }
 
 .komorka {
@@ -11,8 +22,9 @@ body {
     border: 1px solid black;
     width: 100px;
     height: 200px;
-    font-size: auto;
+    font-size: 150px;
     background-color: white;
+    
 }
 
 #kolkoigrzyb {
@@ -76,25 +88,95 @@ body {
 }
 
 #resethyhym {
-    background-color: #3e8e41
+    background-color: #04AA6D;
 }
 
 #resethyhym:active {
-    background-color: #3e8e41;
+    background-color:#04AA6D;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
 #jakiTrybDiv {
     font-family: fantasy;
-    color: lightskyblue
+    color: white;
+    font-size: 80px;
 }
 
 #aktywnyGracz {
     font-family: fantasy;
-    color: lightskyblue;
+    color: white;
+    font-size: 80px;
 }
 
 #kolkoigrzyb {
     margin: auto;
+}
+
+.botvsbotguziec {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.botvsbotguziec:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#startejum {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+
+
+#startejum span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#startejum span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+#startejum:hover span {
+    padding-right: 25px;
+  }
+#startejum:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+#startejum {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }

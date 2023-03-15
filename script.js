@@ -18,7 +18,6 @@ const warunkiWygranej = [
 ]
 let moznaGrac = true
 let botygrajo = false
-let czyRemis = false
 
 
 
@@ -39,10 +38,11 @@ function sprawdzWygrana(){
         let bStyl = document.querySelector("#k"+(warunki[1]+1))
         let cStyl = document.querySelector("#k"+(warunki[2]+1))
         sprawdzRemis(); //funkcja sprawdzająca czy nie ma remisu
-        
+        //nie mam pojecia co to robi ale działa więc jest git
+        //if(moznaGrac == true){
             console.log(counter);
             counter+=1;
-            if(a == b && b == c && a != "" && b != "" && c != "" && moznaGrac){
+            if(a == b && b == c && a != "" && b != "" && c != ""){
                 moznaGrac = false;
                 botygrajo = false;
                 console.log("rosol");
@@ -53,12 +53,12 @@ function sprawdzWygrana(){
 
             }
             
-            else if(counter >= 8 && botygrajo && !czyRemis){
+            else if(counter >= 8 && botygrajo){
                 console.log("gowno");
                 start()
                 zmianaGracza()
             }
-            else if(counter >= 8 && moznaGrac && !czyRemis){
+            else if(counter >= 8 && moznaGrac){
                 console.log(counter)
                 zmianaGracza() //zmienia graczy po sprawdzeniu wszystkich warunków
             }
@@ -115,7 +115,6 @@ function tura(x){
 //funkcja resetująca gre
 function reset(){
     moznaGrac = true
-    czyRemis = false
     aktywnyGracz = grzyb
     document.querySelector("#aktywnyGracz").innerHTML = "Aktywny gracz: "+aktywnyGracz;
     
@@ -133,13 +132,16 @@ function zmienTryb(jakiTryb){
     graczVsGracz = jakiTryb;
     let trybButton = document.querySelector("#zmienTrybButton");
     let trybDiv = document.querySelector("#jakiTrybDiv");
+    let tryb1 = document.querySelector("#tryb1");
     if(jakiTryb == false){
         trybButton.setAttribute("onclick","zmienTryb(true)");
         trybDiv.innerHTML = "Gracz Vs Komputer";
+        tryb1.innerHTML = "Gracz Vs Gracz";
     }
     else if (jakiTryb == true){
         trybButton.setAttribute("onclick","zmienTryb(false)");
         trybDiv.innerHTML = "Gracz Vs Gracz";
+        tryb1.innerHTML = "Gracz Vs Komputer";
     }
     reset();
 }
@@ -153,7 +155,7 @@ function sprawdzRemis(){
                 liczRemis++
         })
         if(liczRemis >= 9){
-            czyRemis = true
+            moznaGrac = false;
             botygrajo = false
             document.querySelector("#aktywnyGracz").innerHTML = "Remis";
         }
