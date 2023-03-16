@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="jakiTrybDiv">Komputer vs Komputer</div>
-    <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
-    <div id="kolkoigrzyb">
-        <div id="k1" class="komorka"></div>
-        <div id="k2" class="komorka"></div>
-        <div id="k3" class="komorka"></div>
-        <div id="k4" class="komorka"></div>
-        <div id="k5" class="komorka"></div>
-        <div id="k6" class="komorka"></div>
-        <div id="k7" class="komorka"></div>
-        <div id="k8" class="komorka"></div>
-        <div id="k9" class="komorka"></div>
+    <div id="takiblok">
+        <div id="jakiTrybDiv">Komputer vs Komputer</div>
+        <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
+        <div id="kolkoigrzyb">
+            <div id="k1" class="komorka"></div>
+            <div id="k2" class="komorka"></div>
+            <div id="k3" class="komorka"></div>
+            <div id="k4" class="komorka"></div>
+            <div id="k5" class="komorka"></div>
+            <div id="k6" class="komorka"></div>
+            <div id="k7" class="komorka"></div>
+            <div id="k8" class="komorka"></div>
+            <div id="k9" class="komorka"></div>
+        </div>
+        
+        <button onclick="reset()" id="resethyhym">Reset</button>
+        <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
+        <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
     </div>
-    
-    <button onclick="reset()" id="resethyhym">Reset</button>
-    <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
-    <button class="botvsbotguziec"><a href="index.php"><span>Gracz vs Gracz</span></a></button>
 
     <script src="script.js"></script>
 </body>

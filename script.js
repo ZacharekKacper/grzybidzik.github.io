@@ -134,7 +134,7 @@ function reset(){
         a.innerHTML = "";
         a.style.backgroundColor = "white";
     })
-
+    
 }
 
 //funkcja zmieniająca tryb z gracz vs gracz na gracz vs komputer
