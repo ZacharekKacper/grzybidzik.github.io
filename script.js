@@ -43,18 +43,19 @@ function sprawdzWygrana(){
             console.log(counter);
             counter+=1;
             if(a == b && b == c && a != "" && b != "" && c != ""){
+                
                 moznaGrac = false;
                 botygrajo = false;
                 console.log("rosol");
                 document.querySelector("#aktywnyGracz").innerHTML = "Wygrywa: "+aktywnyGracz;
-                aStyl.style.backgroundColor = "green";
-                bStyl.style.backgroundColor = "green";
-                cStyl.style.backgroundColor = "green";
+                aStyl.style.backgroundColor = "#00BA00";
+                bStyl.style.backgroundColor = "#00BA00";
+                cStyl.style.backgroundColor = "#00BA00";
 
             }
             
             else if(counter >= 8 && botygrajo){
-                console.log("gowno");
+                console.log("zur");
                 start()
                 zmianaGracza()
             }
@@ -107,6 +108,7 @@ function tura(x){
         if(komorka.innerHTML == ""){
             komorka.innerHTML = aktywnyGracz;
             sprawdzWygrana();
+            
         }
     }
 }
@@ -114,9 +116,18 @@ function tura(x){
 
 //funkcja resetująca gre
 function reset(){
-    moznaGrac = true
-    aktywnyGracz = grzyb
-    document.querySelector("#aktywnyGracz").innerHTML = "Aktywny gracz: "+aktywnyGracz;
+    if(!moznaGrac)
+    {
+        if (document.getElementById("loginSubmit"))
+        {
+            document.getElementById("loginSubmit").click();
+        }
+    }
+    
+    botygrajo = false;
+    moznaGrac = true;
+    aktywnyGracz = grzyb;
+    document.querySelector("#aktywnyGracz").innerHTML = "Aktywny gracz: " + aktywnyGracz;
     
     //petla czyszczaca plansze
     plansza.forEach(a => {
@@ -135,15 +146,16 @@ function zmienTryb(jakiTryb){
     let tryb1 = document.querySelector("#tryb1");
     if(jakiTryb == false){
         trybButton.setAttribute("onclick","zmienTryb(true)");
-        trybDiv.innerHTML = "Gracz Vs Komputer";
-        tryb1.innerHTML = "Gracz Vs Gracz";
+        trybDiv.innerHTML = "Gracz vs Komputer";
+        tryb1.innerHTML = "Gracz vs Gracz";
     }
     else if (jakiTryb == true){
         trybButton.setAttribute("onclick","zmienTryb(false)");
-        trybDiv.innerHTML = "Gracz Vs Gracz";
-        tryb1.innerHTML = "Gracz Vs Komputer";
+        trybDiv.innerHTML = "Gracz vs Gracz";
+        tryb1.innerHTML = "Gracz vs Komputer";
     }
     reset();
+    
 }
 
 //funckcja sprawdzająca czy nie ma
@@ -174,11 +186,10 @@ function start(){
                 if(komorka.innerHTML == ""){
                     tura(pole);  
                     dobrePole = false;
-                    }
                 }
+            }
                 
         }, 1000) 
         
     }
-
 }

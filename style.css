@@ -10,9 +10,9 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
-div {
+#jakiTrybDiv, #aktywnyGracz {
 
     -webkit-text-stroke: 2px black;
 }
@@ -33,20 +33,7 @@ div {
     font-size: 50px;
     display: flex;
     flex-wrap: wrap;
-
-}
-
-#zmienTrybButton {
-    padding: 15px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #04AA6D;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+    /* border-radius: 15px; */
 }
 
 #resethyhym {
@@ -56,45 +43,22 @@ div {
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #04AA6D;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-#zmienTrybButton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
+    box-shadow: 0 9px #005E00;
+    background-color: #00BA00;
     transition: 0.5s;
-}
-
-#zmienTrybButton span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-#zmienTrybButton:hover span {
-    padding-right: 25px;
-}
-
-#zmienTrybButton:hover span:after {
-    opacity: 1;
-    right: 0;
-}
-
-#resethyhym {
-    background-color: #04AA6D;
 }
 
 #resethyhym:active {
-    background-color:#04AA6D;
-    box-shadow: 0 5px #666;
+    background-color:#009400;
+    box-shadow: 0 5px #004000;
     transform: translateY(4px);
+}
+
+#resethyhym:hover {
+    color: #dbdbdb;
+    transition: 0.5s;
 }
 
 #jakiTrybDiv {
@@ -113,23 +77,29 @@ div {
     margin: auto;
 }
 
-.botvsbotguziec {
+#zmienTrybButton {
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #04AA6D;
+    background-color: #00BA00;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px #005E00;
+    transition: 0.5s;
 }
 
-.botvsbotguziec:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+#zmienTrybButton:active {
+    background-color: #009400;
+    box-shadow: 0 5px #004000;
     transform: translateY(4px);
+}
+
+#zmienTrybButton:hover {
+    color: #dbdbdb;
+    transition: 0.5s;
 }
 
 a {
@@ -137,23 +107,21 @@ a {
     color: white;
 }
 
-#startejum {
+.botvsbotguziec {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-
-
-#startejum span {
+.botvsbotguziec span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-#startejum span:after {
+.botvsbotguziec span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -161,22 +129,35 @@ a {
     right: -20px;
     transition: 0.5s;
 }
-#startejum:hover span {
+.botvsbotguziec:hover span {
     padding-right: 25px;
+    color: #dbdbdb;
+    transition: 0.5s;
   }
-#startejum:hover span:after {
+.botvsbotguziec:hover span:after {
     opacity: 1;
     right: 0;
   }
-#startejum {
+.botvsbotguziec {
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #04AA6D;
+    background-color: #00BA00;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px #005E00;
 }
+
+.botvsbotguziec:active {
+    background-color: #009400;
+    box-shadow: 0 5px #004000;
+    transform: translateY(4px);
+}
+
+/* #resethyhym, #zmienTrybButton, .botvsbotguziec, a{
+    -webkit-text-stroke: 1px black;
+    font-size: 40px;
+} */
