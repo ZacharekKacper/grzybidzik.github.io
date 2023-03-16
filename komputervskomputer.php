@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kolkoikrzyguabdluyavitdvot</title>
+    <title>Elzbieta jumpscare</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
+    <div id=""></div>
     <div id="takiblok">
-        <div id="jakiTrybDiv">Gracz vs Gracz</div>
+        <div id="jakiTrybDiv">Komputer vs Komputer</div>
         <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
         <div id="kolkoigrzyb">
-            <div onclick="tura(1)" id="k1" class="komorka"></div>
-            <div onclick="tura(2)" id="k2" class="komorka"></div>
-            <div onclick="tura(3)" id="k3" class="komorka"></div>
-            <div onclick="tura(4)" id="k4" class="komorka"></div>
-            <div onclick="tura(5)" id="k5" class="komorka"></div>
-            <div onclick="tura(6)" id="k6" class="komorka"></div>
-            <div onclick="tura(7)" id="k7" class="komorka"></div>
-            <div onclick="tura(8)" id="k8" class="komorka"></div>
-            <div onclick="tura(9)" id="k9" class="komorka"></div>
+            <div id="k1" class="komorka"></div>
+            <div id="k2" class="komorka"></div>
+            <div id="k3" class="komorka"></div>
+            <div id="k4" class="komorka"></div>
+            <div id="k5" class="komorka"></div>
+            <div id="k6" class="komorka"></div>
+            <div id="k7" class="komorka"></div>
+            <div id="k8" class="komorka"></div>
+            <div id="k9" class="komorka"></div>
         </div>
+        
         <button onclick="reset()" id="resethyhym">Reset</button>
-        <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
-        <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
+        <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
+        <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
     </div>
-    
     <table class="tablica-wynikow">
         <tr>
             <th>Numer gry</th>
@@ -45,8 +45,7 @@
         ?>
     </table>
     <script src="script.js"></script>
-    
-    
-    
+</body>
+</html>
 </body>
 </html>

@@ -18,6 +18,8 @@ const warunkiWygranej = [
 ]
 let moznaGrac = true
 let botygrajo = false
+let wyloczSpam = false 
+let czyRemis = false
 
 
 
@@ -42,7 +44,7 @@ function sprawdzWygrana(){
         //if(moznaGrac == true){
             console.log(counter);
             counter+=1;
-            if(a == b && b == c && a != "" && b != "" && c != ""){
+            if(a == b && b == c && a != "" && b != "" && c != "" && moznaGrac){
                 
                 moznaGrac = false;
                 botygrajo = false;
@@ -51,15 +53,17 @@ function sprawdzWygrana(){
                 aStyl.style.backgroundColor = "#00BA00";
                 bStyl.style.backgroundColor = "#00BA00";
                 cStyl.style.backgroundColor = "#00BA00";
+                
+                
 
             }
             
-            else if(counter >= 8 && botygrajo){
+            else if(counter >= 8 && botygrajo && !czyRemis){
                 console.log("zur");
                 start()
                 zmianaGracza()
             }
-            else if(counter >= 8 && moznaGrac){
+            else if(counter >= 8 && moznaGrac && !czyRemis){
                 console.log(counter)
                 zmianaGracza() //zmienia graczy po sprawdzeniu wszystkich warunków
             }
@@ -116,14 +120,22 @@ function tura(x){
 
 //funkcja resetująca gre
 function reset(){
-    if(!moznaGrac)
-    {
-        if (document.getElementById("loginSubmit"))
-        {
-            document.getElementById("loginSubmit").click();
-        }
+    if(wyloczSpam){
+        document.querySelector("#zmienTrybButton").setAttribute("onclick","start()");
+    }
+    let ktoWygral
+    if(aktywnyGracz == grzyb){
+        ktoWygral = "grzyba";
+    }
+    else{
+        ktoWygral = "dzika";
     }
     
+    tryb = document.querySelector("#jakiTrybDiv").innerHTML;
+    if(!moznaGrac){
+    let link = window.location.href;
+    location.href = "dodajdobazy.php?win=wygrana "+ktoWygral+"&tryb="+tryb+"&link="+link;
+    }
     botygrajo = false;
     moznaGrac = true;
     aktywnyGracz = grzyb;
@@ -167,8 +179,8 @@ function sprawdzRemis(){
                 liczRemis++
         })
         if(liczRemis >= 9){
-            moznaGrac = false;
-            botygrajo = false
+            czyRemis = true;
+            botygrajo = false;
             document.querySelector("#aktywnyGracz").innerHTML = "Remis";
         }
     }
@@ -176,20 +188,21 @@ function sprawdzRemis(){
 
 function start(){
     if(moznaGrac){
+        wyloczSpam = true
+        document.querySelector("#zmienTrybButton").setAttribute("onclick","");
         let dobrePole = true 
         botygrajo = true
         setTimeout(() => {
             console.log("elzbieta") //elzbieta
-            while(dobrePole){
+            while(dobrePole && botygrajo){
                 let pole = Math.floor((Math.random()*9)+1); //tu sie losuje losowe pole dla bota a to co sie dzieje dalej to czarna magia
                 let komorka = document.querySelector("#k"+pole);
                 if(komorka.innerHTML == ""){
-                    tura(pole);  
+                    tura(pole);
                     dobrePole = false;
                 }
             }
-                
+
         }, 1000) 
-        
     }
 }
