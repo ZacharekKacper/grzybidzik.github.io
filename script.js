@@ -5,6 +5,10 @@ const kolko = "🐗";
 //bez tego nie dziala 
 let aktywnyGracz = grzyb;
 let graczVsGracz = true;
+let moznaGrac = true;
+let botygrajo = false
+let wyloczSpam = false 
+let czyRemis = false
 const plansza = document.querySelectorAll(".komorka");
 const warunkiWygranej = [
     [0,1,2],
@@ -16,11 +20,20 @@ const warunkiWygranej = [
     [0,4,8],
     [2,4,6]
 ]
-let moznaGrac = true
-let botygrajo = false
-let wyloczSpam = false 
-let czyRemis = false
-
+let tebelaWynikow = document.querySelectorAll(".umre");
+sprawdzCzyDobryTryb(0)
+function sprawdzCzyDobryTryb(dlugosc){
+    
+    if(tebelaWynikow[dlugosc].innerHTML == "Gracz vs Komputer"){
+        zmienTryb(false);
+    }
+    else if(tebelaWynikow[dlugosc].innerHTML == "Gracz vs Gracz"){
+        zmienTryb(true);
+    }
+    else if(tebelaWynikow[dlugosc].innerHTML == "Komputer vs Komputer"){
+        sprawdzCzyDobryTryb(dlugosc + 1);
+    }
+}
 
 
     
@@ -133,12 +146,13 @@ function reset(){
     
     tryb = document.querySelector("#jakiTrybDiv").innerHTML;
     if(!moznaGrac){
-    let link = window.location.href;
-    location.href = "dodajdobazy.php?win=wygrana "+ktoWygral+"&tryb="+tryb+"&link="+link;
+        let link = window.location.href;
+        location.href = "dodajdobazy.php?win=wygrana "+ktoWygral+"&tryb="+tryb+"&link="+link;
     }
     botygrajo = false;
     moznaGrac = true;
     aktywnyGracz = grzyb;
+    czyRemis = false;
     document.querySelector("#aktywnyGracz").innerHTML = "Aktywny gracz: " + aktywnyGracz;
     
     //petla czyszczaca plansze

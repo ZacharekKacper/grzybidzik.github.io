@@ -37,9 +37,9 @@
         </tr>
         <?php
         $conn = new mysqli("localhost", "root", "","wynikigrzybidzik");
-        $result = $conn->query("SELECT * FROM wyniki");
+        $result = $conn->query("SELECT * FROM wyniki order by id DESC");
         while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td>". $row["tryb"] ."</tr><td> " . $row["data"]. "</td></tr>";
+            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td class='umre'>". $row["tryb"] ."</td><td> " . $row["data"]. "</td></tr>";
         }
         $conn -> close();
         ?>
