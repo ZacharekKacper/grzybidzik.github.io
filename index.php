@@ -9,8 +9,12 @@
     
 </head>
 <body>
-    <div id="jakiTrybDiv">Gracz Vs Gracz</div>
+    <div id="jakiTrybDiv">Gracz vs Gracz</div>
     <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
+    <form method="post" style="display:none;" id="wynikForm" name="wynikForm">
+        <input id="wynik-area" type="text" name="wynik">
+        <input type="submit" value="elzbieta" id="loginSubmit" name="submit">
+    </form>
     <div id="kolkoigrzyb">
         <div onclick="tura(1)" id="k1" class="komorka"></div>
         <div onclick="tura(2)" id="k2" class="komorka"></div>
@@ -24,9 +28,14 @@
     </div>
     <button onclick="reset()" id="resethyhym">Reset</button>
     <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
-    
-    <button class="botvsbotguziec"><a href="komputervskomputer.html">Komputer vs Komputer</a></button>
+    <button class="botvsbotguziec"><a href="komputervskomputer.html"><span>Komputer vs Komputer</span></a></button>
 
     <script src="script.js"></script>
+    
+    <?php
+        if(!empty($_POST["wynik"])){
+            
+        }
+    ?>
 </body>
 </html>
