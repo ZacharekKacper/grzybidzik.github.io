@@ -27,23 +27,25 @@
         <button onclick="reset()" id="resethyhym">Reset</button>
         <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
         <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
-    </div>
-    <table class="tablica-wynikow">
+        <a href='#tablica-wynikow'><p id='wdol'>Wyniki</p></a>
+        <a href='#takiblok'><p id='wgore'>Wróć</p></a>
+        <table class="tablica-wynikow" id='tablica-wynikow'>
         <tr>
-            <th>Numer gry</th>
-            <th>Zwyciezca</th>
-            <th>Tryb gry</th>
-            <th>Data gry</th>
-        </tr>
-        <?php
-        $conn = new mysqli("localhost", "root", "","wynikigrzybidzik");
-        $result = $conn->query("SELECT * FROM wyniki");
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td>". $row["tryb"] ."</tr><td> " . $row["data"]. "</td></tr>";
-        }
-        $conn -> close();
-        ?>
-    </table>
+                <th>Numer gry</th>
+                <th>Zwyciezca</th>
+                <th>Tryb gry</th>
+                <th>Data gry</th>
+            </tr>
+            <?php
+                $conn = new mysqli("localhost", "root", "","wynikigrzybidzik");
+                $result = $conn->query("SELECT * FROM wyniki");
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td class='umre'>". $row["tryb"] ."</td><td>" . $row["data"]. "</td></tr>";
+                }
+                $conn -> close();
+            ?>
+        </table>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
