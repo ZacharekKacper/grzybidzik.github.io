@@ -23,12 +23,12 @@
             <div id="k8" class="komorka"></div>
             <div id="k9" class="komorka"></div>
         </div>
-        
-        <button onclick="reset()" id="resethyhym">Reset</button>
-        <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
-        <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
-        <a href='#tablica-wynikow'><p id='wdol'>Wyniki</p></a>
-        <a href='#takiblok'><p id='wgore'>Wróć</p></a>
+        <div id='guzce'>
+            <button onclick="reset()" id="resethyhym">Reset</button>
+            <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
+            <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
+        </div>
+        <div id='niewiemdiv'><a href='#takiblok' id='ukazwyniklubnie' onclick='ukazwynik'><span id='ukazwyniklubniespan'>︾</span></a></div>
         <table class="tablica-wynikow" id='tablica-wynikow'>
         <tr>
                 <th>Numer gry</th>

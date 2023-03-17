@@ -224,3 +224,27 @@ function start() {
         }, 1000)
     }
 }
+
+function ukazwynik()
+{
+    let a = document.getElementById('ukazwyniklubnie');
+    let strzala = document.getElementById('niewiemdiv');
+
+    console.log(a.getAttribute("href"));
+    if (a.getAttribute("href") == "#takiblok")
+    {
+        a.setAttribute('href', "#tablica-wynikow");
+        strzala.style.transform = "rotate(180deg)";
+        // console.log(strzala.getAttribute("href"));
+    }
+    else if (a.getAttribute("href") == "#tablica-wynikow")
+    {
+        a.setAttribute('href', "#takiblok");
+        strzala.style.transform = "initial";
+        // console.log(strzala.getAttribute("href"));
+    }
+}
+
+document.querySelector('#ukazwyniklubnie').addEventListener('click', function(ev){
+    ukazwynik()
+  });

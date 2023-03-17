@@ -30,7 +30,7 @@ html, body {
 .komorka {
     flex: 1 0 33%;
     outline: 2px solid black;
-    width: 100px;
+    width: 200px;
     height: 200px;
     font-size: 150px;
     background-color: white;
@@ -166,16 +166,18 @@ html, body {
 
 #takiblok {
     background-color: rgba(0, 0, 0, 0.42);
-    /* opacity: 0.5; */
     width: 1100px;
-    /* height: 100vh; */
     margin: auto;
     scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
 }
 
 ::-webkit-scrollbar {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -197,44 +199,18 @@ html, body {
 
 table {
     font-size: 30px;
-    margin: auto;
-    /* margin-top: 5px; */
+    margin: 60px auto;
     font-family: fantasy;
     font-weight:normal;
     border-collapse: collapse;
-    height: 92vh;
+    height: 81vh;
     display: flex;
     overflow-y: auto;
     display: inline-block;
 }
-/* table + tr {
-    
-    font-size: 30px;
-    margin: auto;
-    margin-top: 100px;
-    font-family: fantasy;
-    font-weight:normal;
-    border-collapse: collapse;
-    height: 90vh;
-    display: flex;
-    overflow-y: auto;
-    
-} */
-
-/* th div { 
-    position: absolute; 
-    background-color: #009400;
-    color: white;
-    padding: 10px 20px;
-    font-weight:normal;
-} */
 
 td {
-    /* border: solid black; */
-    /* background-color: #fff; */
     color: rgb(190, 190, 190);
-    /* border-left: solid 1px black;
-    border-right: solid 1px black; */
     padding: 10px 20px;
 }
 th {
@@ -254,14 +230,21 @@ tr {
 
 }
 
-#wdol {
-    margin: 10px;
+#niewiemdiv {
+    font-size: 10px;
     padding: 0;
+    margin: 20px;
+    height:auto;
+    transition: .3s;
+    
+}
+#ukazwyniklubniespan {
+    font-size: 40px;
 }
 
-#wgore {
-    margin: 20px;
-    padding: 0;
+a:hover {
+    color: rgb(163, 163, 163);
+    transition: .5s;
 }
 
 a {
@@ -270,8 +253,116 @@ a {
     text-decoration: none;
     color: white;
     font-size: 20px;
-    background: #00ba0088;
+    transition: .5s;
 }
-/* a:hover {
-    background-color: #00ba0088;
-} */
+
+a:active {
+    color: rgb(119, 119, 119);
+}
+
+#guzce {
+    margin: 0;
+    font-size: 70px;
+}
+
+@media screen and (max-width: 1150px) {
+    #takiblok {
+        background-color: rgba(0, 0, 0, 0.42);
+        width: 800px;
+    }
+    #jakiTrybDiv {
+        font-size: 70px;
+    }
+    #aktywnyGracz {
+        font-size: 50px;
+    }
+    #kolkoigrzyb {
+        width: 450px;
+        height: 450px;
+    }
+    .komorka {
+        width: 150px;
+        height: 150px;
+        font-size: 110px;
+    }
+    table {
+        font-size: 20px;
+        margin: 45px auto;
+    }
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 12px;
+        box-shadow: 0 7px #005E00;
+    }
+    #jakiTrybDiv, #aktywnyGracz {
+
+        -webkit-text-stroke: 1.7px black;
+    }
+    ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #takiblok {
+        background-color: rgba(0, 0, 0, 0.42);
+        width: 100%
+    }
+    #jakiTrybDiv {
+        font-size: 50px;
+    }
+    #aktywnyGracz {
+        font-size: 30px;
+    }
+    #kolkoigrzyb {
+        width: 300px;
+        height: 300px;
+    }
+    .komorka {
+        width: 100px;
+        height: 100px;
+        font-size: 70px;
+    }
+    table {
+        font-size: 10px;
+    }
+    td, th {
+        padding: 5px 10px;
+    }
+    ::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+    }
+    #niewiemdiv {
+        display: none;
+    }
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 10px;
+        box-shadow: 0 5px #005E00;
+    }
+    #jakiTrybDiv, #aktywnyGracz {
+
+        -webkit-text-stroke: 1.5px black;
+    }
+    body {
+        overflow-y: scroll;
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 7px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        box-shadow: 0 4px #005E00;
+    }
+    #jakiTrybDiv {
+        font-size: 40px;
+    }
+    #aktywnyGracz {
+        font-size: 25px;
+    }
+}

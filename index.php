@@ -23,12 +23,12 @@
             <div onclick="tura(8)" id="k8" class="komorka"></div>
             <div onclick="tura(9)" id="k9" class="komorka"></div>
         </div>
-        <button onclick="reset()" id="resethyhym">Reset</button>
-        <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
-        <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
-        <a href='#tablica-wynikow'><p id='wdol'>Wyniki</p></a>
-        <a href='#takiblok'><p id='wgore'>Wróć</p></a>
-
+        <div id='guzce'>
+            <button onclick="reset()" id="resethyhym">Reset</button>
+            <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
+            <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
+        </div>
+        <div id='niewiemdiv'><a href='#takiblok' id='ukazwyniklubnie' onclick='ukazwynik'><span id='ukazwyniklubniespan'>︾</span></a></div>
         <table class="tablica-wynikow" id='tablica-wynikow'>
             <tr>
                 <th>Numer gry</th>
