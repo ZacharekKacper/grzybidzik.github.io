@@ -14,8 +14,14 @@ body {
     -ms-user-select: none;
     user-select: none;
     overflow: overlay;
-    /*overflow-y: hidden;*/
+    overflow-y: hidden;
+    
 }
+
+html, body {
+    scroll-behavior: smooth !important;
+}
+
 #jakiTrybDiv, #aktywnyGracz {
 
     -webkit-text-stroke: 2px black;
@@ -24,7 +30,7 @@ body {
 .komorka {
     flex: 1 0 33%;
     outline: 2px solid black;
-    width: 100px;
+    width: 200px;
     height: 200px;
     font-size: 150px;
     background-color: white;
@@ -108,11 +114,6 @@ body {
     transition: 0.5s;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
 .botvsbotguziec {
     cursor: pointer;
     display: inline-block;
@@ -165,59 +166,203 @@ a {
 
 #takiblok {
     background-color: rgba(0, 0, 0, 0.42);
-    /* opacity: 0.5; */
-    width: 1000px;
-    height: 100vh;
+    width: 1100px;
     margin: auto;
-}
-
-/* ::-webkit-scrollbar-track {
-    background: #00DE00;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
 }
 
 ::-webkit-scrollbar {
-    height: 12px;
-    width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #00BA00;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #009400;
-}
-
-::-webkit-scrollbar-thumb:active {
-    background-color: #005E00;
-}
-::-webkit-scrollbar-corner {
-    background: url("las.png");
-} */
-
-::-webkit-scrollbar {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
     background: none;
-    /* background: url('las.png'); */
-    /* background-color: #00BA00; */
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(35, 35, 35, 0.6);
     border-radius: 100px;
-    /* background-color: #009400; */
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(35, 35, 35, 0.8);
-    /* background-color: #005E00; */
 }
 
 ::-webkit-scrollbar-thumb:active {
     background-color: rgb(35, 35, 35);
-    /* background-color: #004000; */
+}
+
+table {
+    font-size: 30px;
+    margin: 60px auto;
+    font-family: fantasy;
+    font-weight:normal;
+    border-collapse: collapse;
+    height: 81vh;
+    display: flex;
+    overflow-y: auto;
+    display: inline-block;
+}
+
+td {
+    color: rgb(190, 190, 190);
+    padding: 10px 20px;
+}
+th {
+    background-color: #009400;
+    color: white;
+    padding: 10px 20px;
+    font-weight:normal;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+tr:nth-child(even) {
+    background-color: rgba(35, 35, 35, 0.8);
+}
+tr {
+    background-color: rgba(45, 45, 45, 0.8);
+
+}
+
+#niewiemdiv {
+    font-size: 10px;
+    padding: 0;
+    margin: 20px;
+    height:auto;
+    transition: .3s;
+    
+}
+#ukazwyniklubniespan {
+    font-size: 40px;
+}
+
+a:hover {
+    color: rgb(163, 163, 163);
+    transition: .5s;
+}
+
+a {
+    font-family: fantasy;
+    outline: none;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: .5s;
+}
+
+a:active {
+    color: rgb(119, 119, 119);
+}
+
+#guzce {
+    margin: 0;
+    font-size: 70px;
+}
+
+@media screen and (max-width: 1150px) {
+    #takiblok {
+        background-color: rgba(0, 0, 0, 0.42);
+        width: 800px;
+    }
+    #jakiTrybDiv {
+        font-size: 70px;
+    }
+    #aktywnyGracz {
+        font-size: 50px;
+    }
+    #kolkoigrzyb {
+        width: 450px;
+        height: 450px;
+    }
+    .komorka {
+        width: 150px;
+        height: 150px;
+        font-size: 110px;
+    }
+    table {
+        font-size: 20px;
+        margin: 45px auto;
+    }
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 12px 20px;
+        font-size: 18px;
+        border-radius: 12px;
+        box-shadow: 0 7px #005E00;
+    }
+    #jakiTrybDiv, #aktywnyGracz {
+
+        -webkit-text-stroke: 1.7px black;
+    }
+    ::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #takiblok {
+        background-color: rgba(0, 0, 0, 0.42);
+        width: 100%
+    }
+    #jakiTrybDiv {
+        font-size: 50px;
+    }
+    #aktywnyGracz {
+        font-size: 30px;
+    }
+    #kolkoigrzyb {
+        width: 300px;
+        height: 300px;
+    }
+    .komorka {
+        width: 100px;
+        height: 100px;
+        font-size: 70px;
+    }
+    table {
+        font-size: 10px;
+    }
+    td, th {
+        padding: 5px 10px;
+    }
+    ::-webkit-scrollbar {
+        height: 4px;
+        width: 4px;
+    }
+    #niewiemdiv {
+        display: none;
+    }
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 10px;
+        box-shadow: 0 5px #005E00;
+    }
+    #jakiTrybDiv, #aktywnyGracz {
+
+        -webkit-text-stroke: 1.5px black;
+    }
+    body {
+        overflow-y: scroll;
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    #resethyhym, #zmienTrybButton, .botvsbotguziec {
+        padding: 7px 12px;
+        font-size: 12px;
+        border-radius: 6px;
+        box-shadow: 0 4px #005E00;
+    }
+    #jakiTrybDiv {
+        font-size: 40px;
+    }
+    #aktywnyGracz {
+        font-size: 25px;
+    }
 }

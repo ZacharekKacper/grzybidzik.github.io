@@ -23,27 +23,29 @@
             <div onclick="tura(8)" id="k8" class="komorka"></div>
             <div onclick="tura(9)" id="k9" class="komorka"></div>
         </div>
-        <button onclick="reset()" id="resethyhym">Reset</button>
-        <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
-        <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
+        <div id='guzce'>
+            <button onclick="reset()" id="resethyhym">Reset</button>
+            <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
+            <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
+        </div>
+        <div id='niewiemdiv'><a href='#takiblok' id='ukazwyniklubnie' onclick='ukazwynik'><span id='ukazwyniklubniespan'>︾</span></a></div>
+        <table class="tablica-wynikow" id='tablica-wynikow'>
+            <tr>
+                <th>Numer gry</th>
+                <th>Zwyciezca</th>
+                <th>Tryb gry</th>
+                <th>Data gry</th>
+            </tr>
+            <?php
+                $conn = new mysqli("localhost", "root", "","wynikigrzybidzik");
+                $result = $conn->query("SELECT * FROM wyniki order by id DESC");
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td class='umre'>". $row["tryb"] ."</td><td>" . $row["data"]. "</td></tr>";
+                }
+                $conn -> close();
+            ?>
+        </table>
     </div>
-    
-    <table class="tablica-wynikow">
-        <tr>
-            <th>Numer gry</th>
-            <th>Zwyciezca</th>
-            <th>Tryb gry</th>
-            <th>Data gry</th>
-        </tr>
-        <?php
-        $conn = new mysqli("localhost", "root", "","wynikigrzybidzik");
-        $result = $conn->query("SELECT * FROM wyniki order by id DESC");
-        while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["zwyciezca"]. "</td><td class='umre'>". $row["tryb"] ."</td><td> " . $row["data"]. "</td></tr>";
-        }
-        $conn -> close();
-        ?>
-    </table>
     <script src="script.js"></script>
     
     
