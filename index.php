@@ -7,7 +7,7 @@
     <title>kolkoikrzyguabdluyavitdvot</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="grzyb.ico" type="image/x-icon">
 </head>
 <body>
     
