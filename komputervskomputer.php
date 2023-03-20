@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elzbieta jumpscare</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id=""></div>
     <div id="takiblok">
+        <img src="images/volume.png" onclick="wyciszDzwieki()" id="volume" class="cicho">
+        <img src="images/mute.png" onclick="wloczDzwieki()" id="mute" class="cicho">
         <div id="jakiTrybDiv">Komputer vs Komputer</div>
         <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
         <div id="kolkoigrzyb">
@@ -26,7 +29,7 @@
         <div id='guzce'>
             <button onclick="reset()" id="resethyhym">Reset</button>
             <button id="zmienTrybButton" onclick="start()"><span>Start</span></button>
-            <button class="botvsbotguziec" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
+            <button class="botvsbotguziec" id="zyciowe" onclick="location.href='index.php';"><span>Gracz vs Gracz</span></button>
         </div>
         <div id='niewiemdiv'><a href='#takiblok' id='ukazwyniklubnie' onclick='ukazwynik'><span id='ukazwyniklubniespan'>︾</span></a></div>
         <table class="tablica-wynikow" id='tablica-wynikow'>

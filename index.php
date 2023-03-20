@@ -7,11 +7,13 @@
     <title>kolkoikrzyguabdluyavitdvot</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    
     <div id="takiblok">
-        <img src="images/volume.png" id="volume" class="cicho">
-        <img src="images/mute.png" id="mute" class="cicho">
+        <img src="images/volume.png" onclick="wyciszDzwieki()" id="volume" class="cicho">
+        <img src="images/mute.png" onclick="wloczDzwieki()" id="mute" class="cicho">
         <div id="jakiTrybDiv">Gracz vs Gracz</div>
         <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
         <div id="kolkoigrzyb">
@@ -28,7 +30,7 @@
         <div id='guzce'>
             <button onclick="reset()" id="resethyhym">Reset</button>
             <button onclick="zmienTryb(false)" id="zmienTrybButton"><span id="tryb1">Gracz vs Komputer</span></button>
-            <button class="botvsbotguziec" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
+            <button class="botvsbotguziec" id="zyciowe" onclick="location.href='komputervskomputer.php';"><span>Komputer vs Komputer</span></button>
         </div>
         <div id='niewiemdiv'><a href='#takiblok' id='ukazwyniklubnie' onclick='ukazwynik'><span id='ukazwyniklubniespan'>︾</span></a></div>
         <table class="tablica-wynikow" id='tablica-wynikow'>

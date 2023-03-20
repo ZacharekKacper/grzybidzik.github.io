@@ -6,9 +6,10 @@ const kolko = "🐗";
 let aktywnyGracz = grzyb;
 let graczVsGracz = true;
 let moznaGrac = true;
-let botygrajo = false
-let wyloczSpam = false
-let czyRemis = false
+let botygrajo = false;
+let wyloczSpam = false;
+let czyRemis = false;
+let wyciszone = getURLValues();
 let wygranaAudio = new Audio("sounds/wygrana.mp3");
 wygranaAudio.volume = 0.1;
 let remisAudio = new Audio("sounds/boowomp.mp3");
@@ -17,6 +18,10 @@ let turaAudio = new Audio("sounds/pop.mp3");
 turaAudio.volume = 0.2;
 let wynikiAudio1 = new Audio("sounds/wyniki.mp3");
 wynikiAudio1.volume = 0.2;
+
+if(wyciszone.wycisz == "true"){
+    wyciszDzwieki();
+}
 const plansza = document.querySelectorAll(".komorka");
 const warunkiWygranej = [
     [0, 1, 2],
@@ -266,6 +271,16 @@ document.querySelector('#ukazwyniklubnie').addEventListener('click', function(ev
 
 
 function wyciszDzwieki(){
+    let zyciowe = document.querySelector("#zyciowe");
+    console.log(document.querySelector("#jakiTrybDiv").innerHTML)
+    if(document.querySelector("#jakiTrybDiv").innerHTML == "Komputer vs Komputer"){
+        zyciowe.setAttribute("onclick","location.href='index.php?wycisz=true';")
+        
+    }
+    else if(document.querySelector("#jakiTrybDiv").innerHTML == "Gracz vs Gracz" || document.querySelector("#jakiTrybDiv").innerHTML == "Gracz vs Komputer" ){
+        zyciowe.setAttribute("onclick","location.href='komputervskomputer.php?wycisz=true';")
+        
+    }
     document.querySelector("#volume").style.display = "none";
     document.querySelector("#mute").style.display = "block"; 
     wygranaAudio.muted = true;
@@ -275,6 +290,16 @@ function wyciszDzwieki(){
 }
 
 function wloczDzwieki(){
+    let zyciowe = document.querySelector("#zyciowe");
+    console.log(document.querySelector("#jakiTrybDiv").innerHTML)
+    if(document.querySelector("#jakiTrybDiv").innerHTML == "Komputer vs Komputer"){
+        zyciowe.setAttribute("onclick","location.href='index.php?wycisz=false';")
+        
+    }
+    else if(document.querySelector("#jakiTrybDiv").innerHTML == "Gracz vs Gracz" || document.querySelector("#jakiTrybDiv").innerHTML == "Gracz vs Komputer" ) {
+        zyciowe.setAttribute("onclick","location.href='komputervskomputer.php?wycisz=false';")
+        
+    }
     document.querySelector("#volume").style.display = "block";
     document.querySelector("#mute").style.display = "none";
     wygranaAudio.muted = false;
@@ -282,3 +307,19 @@ function wloczDzwieki(){
     wynikiAudio1.muted = false;
     remisAudio.muted = false;
 }
+
+function getURLValues() {
+
+    var search = window.location.search.replace(/^\?/,'').replace(/\+/g,' ');
+    var values = {};
+  
+    if (search.length) {
+      var part, parts = search.split('&');
+  
+      for (var i=0, iLen=parts.length; i<iLen; i++ ) {
+        part = parts[i].split('=');
+        values[part[0]] = window.decodeURIComponent(part[1]);
+      }
+    }
+    return values;
+  }
