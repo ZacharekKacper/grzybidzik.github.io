@@ -10,6 +10,8 @@
 </head>
 <body>
     <div id="takiblok">
+        <img src="images/volume.png" id="volume" class="cicho">
+        <img src="images/mute.png" id="mute" class="cicho">
         <div id="jakiTrybDiv">Gracz vs Gracz</div>
         <div id="aktywnyGracz">Aktywny gracz: 🍄</div>
         <div id="kolkoigrzyb">

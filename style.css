@@ -3,7 +3,7 @@ body {
     padding: 0;
     font-size: 100px;
     text-align: center;
-    background: url("las.png");
+    background: url("images/las.png");
     background-attachment: fixed;
     color: white;
     background-size: 100%;
@@ -44,6 +44,7 @@ html, body {
     flex-wrap: wrap;
     border-radius: 50px;
     overflow: hidden;
+    box-shadow: 0 0 20px #000;
 }
 
 #resethyhym {
@@ -264,6 +265,17 @@ a:active {
     font-size: 70px;
 }
 
+.cicho {
+    filter: invert(100%);
+    margin-left: 20px;
+    top: 37px;
+    width: 50px;
+    position: absolute;
+}
+
+#mute {
+    display: none;
+}
 @media screen and (max-width: 1150px) {
     #takiblok {
         background-color: rgba(0, 0, 0, 0.42);
@@ -301,6 +313,12 @@ a:active {
     ::-webkit-scrollbar {
         height: 8px;
         width: 8px;
+    }
+
+    .cicho {
+        margin-left: 15px;
+        top: 26px;
+        width: 40px;
     }
 }
 @media screen and (max-width: 800px) {
@@ -353,6 +371,12 @@ a:active {
 
     body {
         overflow-y: scroll;
+    }
+
+    .cicho {
+        margin-left: 10px;
+        top: 10px;
+        width: 20px;
     }
     
 }
