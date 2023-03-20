@@ -9,6 +9,14 @@ let moznaGrac = true;
 let botygrajo = false
 let wyloczSpam = false
 let czyRemis = false
+let wygranaAudio = new Audio("sounds/wygrana.mp3");
+wygranaAudio.volume = 0.1;
+let remisAudio = new Audio("sounds/boowomp.mp3");
+remisAudio.volume = 0.2;
+let turaAudio = new Audio("sounds/pop.mp3");
+turaAudio.volume = 0.2;
+let wynikiAudio1 = new Audio("sounds/wyniki.mp3");
+wynikiAudio1.volume = 0.2;
 const plansza = document.querySelectorAll(".komorka");
 const warunkiWygranej = [
     [0, 1, 2],
@@ -61,7 +69,8 @@ function sprawdzWygrana() {
         console.log(counter);
         counter += 1;
         if (a == b && b == c && a != "" && b != "" && c != "" && moznaGrac) {
-
+            remisAudio.pause();
+            wygranaAudio.play();
             moznaGrac = false;
             botygrajo = false;
             console.log("rosol");
@@ -127,6 +136,7 @@ function tura(x) {
     if (moznaGrac) {
         let komorka = document.querySelector("#k" + x);
         if (komorka.innerHTML == "") {
+            turaAudio.play();
             komorka.innerHTML = aktywnyGracz;
             sprawdzWygrana();
 
@@ -197,6 +207,7 @@ function sprawdzRemis() {
                 liczRemis++
         })
         if (liczRemis >= 9) {
+            remisAudio.play();
             czyRemis = true;
             botygrajo = false;
             document.querySelector("#aktywnyGracz").innerHTML = "Remis";
@@ -233,12 +244,16 @@ function ukazwynik()
     console.log(a.getAttribute("href"));
     if (a.getAttribute("href") == "#takiblok")
     {
+        wynikiAudio1.pause();
+        wynikiAudio1.play();
         a.setAttribute('href', "#tablica-wynikow");
         strzala.style.transform = "rotate(180deg)";
         // console.log(strzala.getAttribute("href"));
     }
     else if (a.getAttribute("href") == "#tablica-wynikow")
     {
+        wynikiAudio1.pause();
+        wynikiAudio1.play();
         a.setAttribute('href', "#takiblok");
         strzala.style.transform = "initial";
         // console.log(strzala.getAttribute("href"));
@@ -248,3 +263,22 @@ function ukazwynik()
 document.querySelector('#ukazwyniklubnie').addEventListener('click', function(ev){
     ukazwynik()
   });
+
+
+function wyciszDzwieki(){
+    document.querySelector("#volume").style.display = "none";
+    document.querySelector("#mute").style.display = "block"; 
+    wygranaAudio.muted = true;
+    turaAudio.muted = true;
+    wynikiAudio1.muted = true;
+    remisAudio.muted = true;
+}
+
+function wloczDzwieki(){
+    document.querySelector("#volume").style.display = "block";
+    document.querySelector("#mute").style.display = "none";
+    wygranaAudio.muted = false;
+    turaAudio.muted = false;
+    wynikiAudio1.muted = false;
+    remisAudio.muted = false;
+}
